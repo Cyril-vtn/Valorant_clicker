@@ -1,6 +1,7 @@
 "use strict";
 // Element html
 const attaque = document.querySelector(".attaque");
+const scoreSecText = document.querySelector(".scoreSecText");
 
 // variable de départ - Début de game
 let score = 0;
@@ -28,7 +29,7 @@ const ghostTextContent = document.querySelector(".ghost--nb");
 const ghostPriceText = document.querySelector(".ghost--price");
 
 //sheriff
-let sheriffPrice = 130000;
+let sheriffPrice = 100000;
 let sheriffNumber = 0;
 const sheriff = document.getElementById("sheriff");
 const sheriffTextContent = document.querySelector(".sheriff--nb");
@@ -42,28 +43,28 @@ const spectreTextContent = document.querySelector(".spectre--nb");
 const spectrePriceText = document.querySelector(".spectre--price");
 
 //guardian
-let guardianPrice = 1000000;
+let guardianPrice = 300000;
 let guardianNumber = 0;
 const guardian = document.getElementById("guardian");
 const guardianTextContent = document.querySelector(".guardian--nb");
 const guardianPriceText = document.querySelector(".guardian--price");
 
 //phantom
-let phantomPrice = 3000000;
+let phantomPrice = 400000;
 let phantomNumber = 0;
 const phantom = document.getElementById("phantom");
 const phantomTextContent = document.querySelector(".phantom--nb");
 const phantomPriceText = document.querySelector(".phantom--price");
 
 //vandal
-let vandalPrice = 5000000;
+let vandalPrice = 500000;
 let vandalNumber = 0;
 const vandal = document.getElementById("vandal");
 const vandalTextContent = document.querySelector(".vandal--nb");
 const vandalPriceText = document.querySelector(".vandal--price");
 
 //odin
-let odinPrice = 8000000;
+let odinPrice = 600000;
 let odinNumber = 0;
 const odin = document.getElementById("odin");
 const odinTextContent = document.querySelector(".odin--nb");
@@ -265,8 +266,30 @@ knife.addEventListener("click", function () {
 
 // ------------------ Update score par second ------------------
 setInterval(function () {
-  score = score + classicNumber * 2;
-  score = score + frenzyNumber * 5;
-  score = score + ghostNumber * 50;
+  scorePerSecond =
+    classicNumber * 10 +
+    frenzyNumber * 20 +
+    ghostNumber * 50 +
+    sheriffNumber * 500 +
+    spectreNumber * 900 +
+    guardianNumber * 1400 +
+    phantomNumber * 200 +
+    vandalNumber * 2000 +
+    odinNumber * 3000 +
+    operatorNumber * 5000 +
+    knifeNumber * 10000;
+
+  score = score + scorePerSecond;
+  // score = score + frenzyNumber * 20;
+  // score = score + ghostNumber * 50;
+  // score = score + sheriffNumber * 500;
+  // score = score + spectreNumber * 900;
+  // score = score + guardianNumber * 1400;
+  // score = score + phantomNumber * 2000;
+  // score = score + vandalNumber * 2000;
+  // score = score + odinNumber * 3000;
+  // score = score + operatorNumber * 5000;
+  // score = score + knifeNumber * 10000;
   attaque.textContent = score;
+  scoreSecText.textContent = scorePerSecond;
 }, 1);
