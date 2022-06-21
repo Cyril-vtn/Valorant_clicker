@@ -2,7 +2,12 @@ html {
   width: 100%;
   height: 100%;
 }
-
+.noselect {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+}
 .hide {
   visibility: hidden;
 }
@@ -82,6 +87,10 @@ h2 {
   margin-top: 40px;
 }
 
+h4 {
+  display: flex;
+}
+
 /* SECTION DROITE */
 
 .section--right--text {
@@ -116,6 +125,9 @@ h2 {
   margin: auto 10px;
   text-align: center;
   justify-content: center;
+}
+.section--right {
+  overflow: hidden;
 }
 
 /* FOOTER */
